@@ -1,10 +1,11 @@
 Package: NuPoP
 Type: Package
 Title: An R package for nucleosome positioning prediction
-Version: 1.5.0
+Version: 1.5.1
 Date: 2010-06-24
 Author: Ji-Ping Wang <jzwang@northwestern.edu>; Liqun Xi <lxi700@northwestern.edu>
 Maintainer: Ji-Ping Wang<jzwang@northwestern.edu>
 Description: NuPoP is an R package for Nucleosome Positioning Prediction.This package is built upon a duration hidden Markov model proposed in Xi et al, 2010; Wang et al, 2008. The core of the package was written in Fotran. In addition to the R package, a stand-alone Fortran software tool is also available at http://nucleosome.stats.northwestern.edu.
 License: GPL-2
 biocViews: genetics,visualization,classification
+Depends: R (>= 2.10)
