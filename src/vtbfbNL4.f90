@@ -202,7 +202,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
   allocate(r(z),hatFN(0:z),hatFL(z))
   allocate(ra(z),hatAN(0:z),hatAL(z),rb(0:(z-1)),hatBN(0:(z-1)),hatBL(0:z))
 
-  w(1:z)=wt(base+st(q):base+ed(q)); do i=1,z; c(i)=5-w(z-i+1); end do
+  w(1:z)=wt(base+st(q):base+ed(q)); do i=1,z; c(i)=5_1-w(z-i+1); end do
   !!!!!!!!!!!!!!!!!!!!!!!  viterbi algorithm  !!!!!!!!!!!!!!!!!!!!!!!!
 
   change=0; hatFN(0)=1.0; hatAN(0)=1.0; hatBL(z)=1.0
