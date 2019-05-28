@@ -1,0 +1,3 @@
+useDynLib(NuPoP)
+export(predNuPoP,readNuPoP,plotNuPoP)
+
