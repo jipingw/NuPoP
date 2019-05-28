@@ -15,9 +15,11 @@ predNuPoP=function(file,species=7,model=4)
   file=as.character(file); n=nchar(file); maxlen=500; maxlen=as.integer(maxlen)
   species=as.integer(species); model=as.integer(model)
   rep=1; rep=as.integer(rep); ind=0
+  file_name_num=as.integer(charToRaw(file))
+
   
   if(model==1){
-    results=.Fortran("vtbfb",n,file,freqL,tranL,freqN,tranN,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+    results=.Fortran("vtbfb",n,as.integer(file_name_num),freqL,tranL,freqN,tranN,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
     ind=results$ind
     if(ind==0){
       FilePath=getwd()
@@ -25,7 +27,7 @@ predNuPoP=function(file,species=7,model=4)
       cat(paste("Prediction output: '"), FilePath, "/", parts[length(parts)],"_Prediction1.txt'",sep="")
     }
   } else if(model==4){
-    results=.Fortran("vtbfbNL4",n,file,freqL,tranL,tranL2,tranL3,tranL4,freqN4,tranN4,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+    results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),freqL,tranL,tranL2,tranL3,tranL4,freqN4,tranN4,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
     ind=results$ind
     if(ind==0){
       FilePath=getwd()

@@ -1,18 +1,18 @@
 
-subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,TtranN4,mlL,rep,species,Pdd,ind)
+subroutine vtbfbNL4(lfn,file_name_num,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,TtranN4,mlL,rep,species,Pdd,ind)
 
   implicit none
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   integer   t,d,i,j,k,l,m,n,z,mlL,rep,lfn,nvt,species,ind,tep,lfn1
-  integer   zt,np,zp(100),q,st(100),ed(100),ext,rts(100),rte(100)
+  integer   zt,np,zp(100),q,st(100),ed(100),ext,rts(100),rte(100),file_name_num(lfn)
   integer   ztt,nsec,x,base; integer,allocatable:: nrcv(:),nbrk(:)
   real*8    tempN,tempL,temp,tp,Pd(mlL),tmp(mlL),sc(4),Pdd(mlL,11),scc(2,0:11)
   real*8    TtranL2(16,4),TtranL3(64,4),TtranL4(256,4),TfreqN4(64,4),TtranN4((147-4)*256,4)
   real*8    freqL1(4),tranL1(4,4),tranL2(4,4,4),tranL3(4,4,4,4),tranL4(4,4,4,4,4)
   real*8    freqN4(4,4,4,4),tranN4(5:147,4,4,4,4,4),freqL4(4,4,4,4)
 
-  character*80 seqName,out1,out2; character*2 tpc
+  character*80 seqName,out1; character*2 tpc
   character(len=lfn) filename
   character(len=10000000),allocatable:: a(:)
 
@@ -20,6 +20,11 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
   integer,allocatable:: change(:),Nst(:); real*8,allocatable:: ppEndN(:),ppN(:),asc(:),aas(:)
   real*8,allocatable:: hatFN(:),hatFL(:),r(:),hatAN(:),hatAL(:),ra(:),hatBN(:),hatBL(:),rb(:)
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  filename=char(file_name_num(1))
+  do i=2,lfn;
+     filename = filename(1:(i-1)) // char(file_name_num(i))
+  end do
+  !print *, filename
 
   do i=1,4; do j=1,4; tranL2(i,j,:)=TtranL2((i-1)*4+j,:)
   do k=1,4; tranL3(i,j,k,:)=TtranL3((i-1)*16+(j-1)*4+k,:)
@@ -254,7 +259,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
       if(d<=3.and.hatFN(t-d)/=0.0) then
         temp=hatFN(t-d)*Pd(d)*freqL1(w(t-d+1))*freqL1(c(z-t+1))
         if(d>=2) temp=temp*tranL1(w(t-d+1),w(t-d+2))*tranL1(c(z-t+1),c(z-t+2))/r(t-d+1)
-        if(d>=3) temp=temp*tranL2(w(t-d+1),w(t-d+2),w(t-d+3))*tranL2(c(z-t+1),c(z-t+2),c(z-t+3))/r(t-d+2)	  
+        if(d>=3) temp=temp*tranL2(w(t-d+1),w(t-d+2),w(t-d+3))*tranL2(c(z-t+1),c(z-t+2),c(z-t+3))/r(t-d+2)
       end if
 
       if(d>=4) then
@@ -269,7 +274,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
 
       if(temp>tempL) then
         tempL=temp; change(t)=t-d
-      end if	
+      end if
     end do
 
     r(t)=tempN+tempL
@@ -298,7 +303,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
       if(d<=3.and.hatAN(t-d)/=0.0) then
         temp=hatAN(t-d)*Pd(d)*freqL1(w(t-d+1))*freqL1(c(z-t+1))
         if(d>=2) temp=temp*tranL1(w(t-d+1),w(t-d+2))*tranL1(c(z-t+1),c(z-t+2))/ra(t-d+1)
-        if(d>=3) temp=temp*tranL2(w(t-d+1),w(t-d+2),w(t-d+3))*tranL2(c(z-t+1),c(z-t+2),c(z-t+3))/ra(t-d+2)	  
+        if(d>=3) temp=temp*tranL2(w(t-d+1),w(t-d+2),w(t-d+3))*tranL2(c(z-t+1),c(z-t+2),c(z-t+3))/ra(t-d+2)
       end if
 
       if(d>=4) then
@@ -311,7 +316,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
         if(hatAN(t-d)/=0.0) temp=hatAN(t-d)*Pd(d)*freqL4(w(t-d+1),w(t-d+2),w(t-d+3),w(t-d+4))*tp/ra(t-d+1)/ra(t-d+2)/ra(t-d+3)
       end if
 
-      tempL=tempL+temp	
+      tempL=tempL+temp
     end do
 
     ra(t)=tempN+tempL
@@ -332,7 +337,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
     hatBN(t)=1.0; hatBL(t)=0.0
     rb(t)=Pd(z-t)*freqL1(w(t+1))*freqL1(c(1))
     if(z-t>=2) rb(t)=rb(t)*tranL1(w(t+1),w(t+2))*tranL1(c(1),c(2))/rb(t+1)
-    if(z-t>=3) rb(t)=rb(t)*tranL2(w(t+1),w(t+2),w(t+3))*tranL2(c(1),c(2),c(3))/rb(t+2)	  
+    if(z-t>=3) rb(t)=rb(t)*tranL2(w(t+1),w(t+2),w(t+3))*tranL2(c(1),c(2),c(3))/rb(t+2)
     if(z-t>=4) rb(t)=rb(t)*tranL3(w(t+1),w(t+2),w(t+3),w(t+4))*tranL3(c(1),c(2),c(3),c(4))/rb(t+3)
     do i=5,z-t
       rb(t)=rb(t)*tranL4(w(t+i-4),w(t+i-3),w(t+i-2),w(t+i-1),w(t+i))&
@@ -361,7 +366,7 @@ subroutine vtbfbNL4(lfn,filename,freqL1,tranL1,TtranL2,TtranL3,TtranL4,TfreqN4,T
       if(d<=3.and.hatBL(t+d)>0.0) then
         temp=Pd(d)*freqL1(w(t+1))*freqL1(c(z-t-d+1))*hatBL(t+d)
         if(d>=2) temp=temp*tranL1(w(t+1),w(t+2))*tranL1(c(z-t-d+1),c(z-t-d+2))/rb(t+1)
-        if(d>=3) temp=temp*tranL2(w(t+1),w(t+2),w(t+3))*tranL2(c(z-t-d+1),c(z-t-d+2),c(z-t-d+3))/rb(t+2)	  
+        if(d>=3) temp=temp*tranL2(w(t+1),w(t+2),w(t+3))*tranL2(c(z-t-d+1),c(z-t-d+2),c(z-t-d+3))/rb(t+2)
       end if
 
       if(d>=4) then

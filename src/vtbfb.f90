@@ -1,11 +1,11 @@
 
-subroutine vtbfb(lfn,filename,freqL,tranL,freqN,tranNN,mlL,rep,species,Pdd,ind)
+subroutine vtbfb(lfn,file_name_num,freqL,tranL,freqN,tranNN,mlL,rep,species,Pdd,ind)
 
   implicit none
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   integer   t,d,i,j,k,l,m,n,z,mlL,lfn,rep,nvt,species,ind,tep,lfn1
-  integer   zt,np,zp(100),q,st(100),ed(100),ext,rts(100),rte(100)
+  integer   zt,np,zp(100),q,st(100),ed(100),ext,rts(100),rte(100),file_name_num(lfn)
   integer   ztt,nsec,x,base; integer,allocatable:: nrcv(:),nbrk(:)
   real*8    tempN,tempL,temp,tp,sc(4),scc(2,0:11)
   real*8    freqL(4),tranL(4,4),freqN(147,4),tranN(146,4,4),tranNN(584,4),Pd(mlL),tmp(mlL),Pdd(mlL,11)
@@ -19,6 +19,12 @@ subroutine vtbfb(lfn,filename,freqL,tranL,freqN,tranNN,mlL,rep,species,Pdd,ind)
   real*8,allocatable:: r(:),hatFN(:),hatFL(:),ra(:),hatAN(:),hatAL(:),rb(:),hatBN(:),hatBL(:)
   real*8,allocatable:: ppEndN(:),ppN(:),asc(:),aas(:)
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  filename=char(file_name_num(1))
+  do i=2,lfn;
+    filename = filename(1:(i-1)) // char(file_name_num(i))
+  end do
+  !print *, filename
 
   do i=1,146; do j=1,4; tranN(i,j,:)=tranNN(4*(i-1)+j,:); end do; end do
 
