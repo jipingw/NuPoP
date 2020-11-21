@@ -14,7 +14,6 @@
 
 
 \examples{
-library(NuPoP)
 
 ## the prediction results are stored in the current working directory
 ## the user should replace "system.file("extdata","test.seq_Prediction4.txt",package="NuPoP")"

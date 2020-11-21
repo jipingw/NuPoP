@@ -1,3 +1,5 @@
 useDynLib(NuPoP)
-export(predNuPoP,readNuPoP,plotNuPoP)
+importFrom("graphics", "par", "points", "polygon", "title")
+importFrom("utils", "read.table")
+export(predNuPoP,readNuPoP,plotNuPoP,predNuPoP_chem)
 

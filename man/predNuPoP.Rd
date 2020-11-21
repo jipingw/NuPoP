@@ -22,7 +22,6 @@
 
 
 \examples{
-library(NuPoP)
 predNuPoP(system.file("extdata", "test.seq", package="NuPoP"),species=7,model=4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

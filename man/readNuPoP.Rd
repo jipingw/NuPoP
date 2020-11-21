@@ -10,9 +10,10 @@
   \item{startPos}{the start position in the DNA sequence for prediction results plotting.}
   \item{endPos}{the end position in the DNA sequence for prediction results plotting.} 
 }
-
+\value{A dataframe that contains the results from \code{predNuPoP}. The five columns are
+\code{position}: position in the input seqeunce; \code{P-start}: probability as the start of a nucleosome; \code{Occu}: nucleosome occupancy, \code{N/L}: nucleosome (1) or linker (0) based on Viterbi prediction; and \code{Affinity}: nucleosome binding affinity score.
+}
 \examples{
-library(NuPoP)
 predNuPoP(system.file("extdata", "test.seq", package="NuPoP"),species=7,model=4)
 
 ## the prediction results are stored in the current working directory

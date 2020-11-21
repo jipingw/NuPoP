@@ -10,7 +10,7 @@ subroutine vtbfb(lfn,file_name_num,freqL,tranL,freqN,tranNN,mlL,rep,species,Pdd,
   real*8    tempN,tempL,temp,tp,sc(4),scc(2,0:11)
   real*8    freqL(4),tranL(4,4),freqN(147,4),tranN(146,4,4),tranNN(584,4),Pd(mlL),tmp(mlL),Pdd(mlL,11)
 
-  character*80 seqName,out1,out2; character*2 tpc
+  character*80 seqName,out1; character*2 tpc
   character(len=lfn) filename
   character(len=10000000),allocatable:: a(:)
 

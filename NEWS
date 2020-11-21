@@ -1,0 +1,6 @@
+CHANGES IN VERSION 1.99.0
+-------------------------
+
+    o Included predNuPoP_chem function which predicts the nucleosome positioning based on profiles trained based on chemical maps
+    o Vignette file has been created with R markdown
+    o Added NEWS file to document version bump

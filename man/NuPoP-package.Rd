@@ -25,6 +25,8 @@ License: \tab  GPL-2\cr
 \code{readNuPoP}: R function to read in the prediction results by \code{predNuPoP}.
 
 \code{plotNuPoP}: R function to visualize predictions.
+
+\code{predNuPoP_chem}: R function invoking Fortran codes to predict nucleosome positioning, nucleosome occupancy and binding affinity using profiles trained based on chemically mapped nucleosomes in yeast, S.pombe, mouse and human.
 }
 \author{
 Ji-Ping Wang, Liqun Xi
@@ -38,7 +40,6 @@ Wang, J.-P., Fondufe-Mittendorf, Y., Xi, L., Tsai, G., Segal, E. and Widom, J.(2
 }
 
 \examples{
-library(NuPoP)
 predNuPoP(system.file("extdata", "test.seq", package="NuPoP"),species=7,model=4)
 
 ## the prediction results are stored in the current working directory
