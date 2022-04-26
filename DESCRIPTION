@@ -1,7 +1,7 @@
 Package: NuPoP
 Type: Package
 Title: An R package for nucleosome positioning prediction
-Version: 2.4.0
+Version: 2.5.0
 Date: 2020-11-21
 Author: Ji-Ping Wang <jzwang@northwestern.edu>; Liqun Xi <liqunxi02@gmail.com>; Oscar Zarate <zarate@u.northwestern.edu>
 Maintainer: Ji-Ping Wang<jzwang@northwestern.edu>
