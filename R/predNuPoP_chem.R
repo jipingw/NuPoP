@@ -18,15 +18,20 @@ predNuPoP_chem=function(file,species=7,model=4)
 
   if(model==1){
     if(species==1){ #huamn, species=7 was passed to fortran codes such that re-scaling is not needed
-      results=.Fortran("vtbfb",n,as.integer(file_name_num),cfreqL_h,ctranL_h,cfreqN_h,ctranN_h,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      results=.Fortran("cvtbfb",n,as.integer(file_name_num),cfreqL_h,ctranL_h,cfreqN_h,ctranN_h,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = 
+"NuPoP")
     }else if(species==2){ #mouse
-      results=.Fortran("vtbfb",n,as.integer(file_name_num),cfreqL_m,ctranL_m,cfreqN_m,ctranN_m,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      results=.Fortran("cvtbfb",n,as.integer(file_name_num),cfreqL_m,ctranL_m,cfreqN_m,ctranN_m,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = 
+"NuPoP")
     }else if (species==7){ #yeast
-      results=.Fortran("vtbfb",n,as.integer(file_name_num),cfreqL_y,ctranL_y,cfreqN_y,ctranN_y,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      results=.Fortran("cvtbfb",n,as.integer(file_name_num),cfreqL_y,ctranL_y,cfreqN_y,ctranN_y,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = 
+"NuPoP")
     }else if(species==9){ #pombe
-      results=.Fortran("vtbfb",n,as.integer(file_name_num),cfreqL_p,ctranL_p,cfreqN_p,ctranN_p,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      results=.Fortran("cvtbfb",n,as.integer(file_name_num),cfreqL_p,ctranL_p,cfreqN_p,ctranN_p,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = 
+"NuPoP")
     }else{
-      results=.Fortran("vtbfb",n,as.integer(file_name_num),cfreqL_y,ctranL_y,cfreqN_y,ctranN_y,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      results=.Fortran("cvtbfb",n,as.integer(file_name_num),cfreqL_y,ctranL_y,cfreqN_y,ctranN_y,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = 
+"NuPoP")
     }
     ind=results$ind
     if(ind==0){
@@ -36,15 +41,20 @@ predNuPoP_chem=function(file,species=7,model=4)
     }
   }else if(model==4){
     if(species==1){#species=7 was passed to fortran codes such that re-scaling is not needed
-      results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),cfreqL_h,ctranL_h,ctranL2_h,ctranL3_h,ctranL4_h,cfreqN4_h,ctranN4_h,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      
+results=.Fortran("cvtbfbNL4",n,as.integer(file_name_num),cfreqL_h,ctranL_h,ctranL2_h,ctranL3_h,ctranL4_h,cfreqN4_h,ctranN4_h,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
     }else if(species==2){
-      results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),cfreqL_m,ctranL_m,ctranL2_m,ctranL3_m,ctranL4_m,cfreqN4_m,ctranN4_m,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      
+results=.Fortran("cvtbfbNL4",n,as.integer(file_name_num),cfreqL_m,ctranL_m,ctranL2_m,ctranL3_m,ctranL4_m,cfreqN4_m,ctranN4_m,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
      }else if (species==7){
-      results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),cfreqL_y,ctranL_y,ctranL2_y,ctranL3_y,ctranL4_y,cfreqN4_y,ctranN4_y,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      
+results=.Fortran("cvtbfbNL4",n,as.integer(file_name_num),cfreqL_y,ctranL_y,ctranL2_y,ctranL3_y,ctranL4_y,cfreqN4_y,ctranN4_y,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
      }else if(species==9){
-    results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),cfreqL_p,ctranL_p,ctranL2_p,ctranL3_p,ctranL4_p,cfreqN4_p,ctranN4_p,maxlen,rep,species=7,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+    
+results=.Fortran("cvtbfbNL4",n,as.integer(file_name_num),cfreqL_p,ctranL_p,ctranL2_p,ctranL3_p,ctranL4_p,cfreqN4_p,ctranN4_p,maxlen,rep,species=species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
      }else{
-      results=.Fortran("vtbfbNL4",n,as.integer(file_name_num),cfreqL_y,ctranL_y,ctranL2_y,ctranL3_y,ctranL4_y,cfreqN4_y,ctranN4_y,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
+      
+results=.Fortran("cvtbfbNL4",n,as.integer(file_name_num),cfreqL_y,ctranL_y,ctranL2_y,ctranL3_y,ctranL4_y,cfreqN4_y,ctranN4_y,maxlen,rep,species,Pd,ind=as.integer(ind),PACKAGE = "NuPoP")
     }
     ind=results$ind
     if(ind==0){
