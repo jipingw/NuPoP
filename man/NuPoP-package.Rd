@@ -7,9 +7,14 @@
 }
 \description{
 \code{NuPoP} is an R package for \code{Nu}cleosome \code{Po}sitioning \code{P}rediction.
-This package is built upon a duration hidden Markov model proposed in Xi et al 2010 and 
-Wang et al 2008. The core of the package was written in Fortran. Three functions  including \code{predNuPoP}, \code{readNuPoP}, 
-and \code{plotNuPoP} are provided for nucleosome positioning prediction, prediction results readin, and prediction results visualization respectively. 
+This package is built upon a duration hidden Markov model proposed in Xi et al 2010 and
+Wang et al 2008. The core of the package was written in Fortran. \code{NuPoP} has prediction
+function trained based on both MNase maps and chemical maps of nucleosome positioning data,
+all generated from Ji-Ping Wang's lab. Some detailed information about this package can be
+found at Ji-Ping Wang's github: https://github.com/jipingw/NuPoP, and its performatics relative to another derived package nuCpos can be found at https://github.com/jipingw/NuPoP_doc.
+\code{NuPoP} also provides additional functions for visualization of nucleosome predictions.
+Four functions  including \code{predNuPoP},\code{predNuPoP_chem}, \code{readNuPoP},
+and \code{plotNuPoP} are provided for nucleosome positioning prediction based on MNase map and chemical map respecively, prediction results readin, and prediction results  visualization respectively.
 The input DNA sequence can be of any length.
 }
 \details{
