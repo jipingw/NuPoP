@@ -45,6 +45,7 @@ Wang, J.-P., Fondufe-Mittendorf, Y., Xi, L., Tsai, G., Segal, E. and Widom, J.(2
 }
 
 \examples{
+\dontrun{
 predNuPoP(system.file("extdata", "test.seq", package="NuPoP"),species=7,model=4)
 
 ## the prediction results are stored in the current working directory
@@ -53,4 +54,5 @@ predNuPoP(system.file("extdata", "test.seq", package="NuPoP"),species=7,model=4)
 
 temp=readNuPoP(system.file("extdata","test.seq_Prediction4.txt",package="NuPoP"),startPos=1,endPos=5000)
 plotNuPoP(temp)
+}
 }
