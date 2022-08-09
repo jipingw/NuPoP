@@ -45,7 +45,7 @@ knitr::opts_chunk$set(
 
 2. NuPoP V2.0 added a funciton **predNuPoP_chem** for prediction of nucleosomes using profiles trained based on chemical maps of nucleosomes for yeast, pombe, mouse and human (profiles for other species are extrapolated based on yeast profile). To show a clear improvement, Figure: MNase_vs_Chemicale below compares the prediction based on MNase profile vs chemical profile for yeast where the red curve super-imposed is the occupancy from the chemical map for yeast data. 
 
-2. **A report of performance comparison of NuPoP (V2.0) vs nuCpos (V1.14) can be found at**
+3. **A report of performance comparison of NuPoP (V2.0) vs nuCpos (V1.14) can be found at**
 <https://github.com/jipingw/NuPoP_doc>
 
 ************************************

@@ -15,15 +15,26 @@ NuPoP: **Nu**cleosomes **Po**sitioning Prediction
 
 **References for chemical map data used**:
 
-3. Brogaard, K., Xi, L., Wang, J.-P. and Widom, J. (2012), A base pair resolution map of nucleosome positions in yeast, *Nature*, 2012, 486: 496–501
-4. Moyle-Heyrman, G., Zaichuk, T., Xi, L., Zhang, Q., Uhlenbeck, O.C., Holmgren, R., Widom, J. and Wang, J.-P., Chemical map of Schizosaccharomyces pombe reveals species-specific features in nucleosome positioning, *PNAS* , 2013,110(50),20158-20163	
-5. Voong, L.N, Xi, L., Sebeson, A.C., Xiong, B., Wang, J.-P., Wang, X. Insights into Nucleosome Organization in Mouse Embryonic Stem Cells through Chemical Mapping , *Cell*, 2016, 167(6),1555-1570.e15 
+4. Brogaard, K., Xi, L., Wang, J.-P. and Widom, J. (2012), A base pair 
+resolution map of nucleosome positions in yeast, *Nature*, 2012, 486: 496–501
+5. Moyle-Heyrman, G., Zaichuk, T., Xi, L., Zhang, Q., Uhlenbeck, O.C., 
+Holmgren, R., Widom, J. and Wang, J.-P., Chemical map of Schizosaccharomyces pombe reveals species-specific features in nucleosome positioning, *PNAS* , 2013,110(50),20158-20163	
+6. Voong, L.N, Xi, L., Sebeson, A.C., Xiong, B., Wang, J.-P., Wang, X. 
+Insights into Nucleosome Organization in Mouse Embryonic Stem Cells through Chemical Mapping , *Cell*, 2016, 167(6),1555-1570.e15 
 
-## NuPoP V 2. hightlights
-*NuPoP* V2 added a funciton **predNuPoP_chem** for prediction of nucleosomes using profiles trained based on chemical maps of nucleosomes for yeast, pombe, mouse and human (profiles for other species are extrapolated based on yeast profile). To show a clear improvement, the following figure compares the prediction based on MNase profile vs chemical profile for yeast where the red curve super-imposed is the occupancy from the chemical map for yeast data. 
+## NuPoP versions  hightlights
+
+1. NuPoP V2.5 added adjustments of linker length distribution.
+
+2. NuPoP V2 added a funciton **predNuPoP_chem** for prediction of 
+nucleosomes using profiles trained based on chemical maps of nucleosomes for yeast, pombe, mouse and human (profiles for other species are extrapolated based on yeast profile). To show a clear improvement, the following figure compares the prediction based on MNase profile vs chemical profile for yeast where the red curve super-imposed is the occupancy from the chemical map for yeast data. 
+
+3. **A report of performance comparison of NuPoP (V2.0) vs nuCpos (V1.14) 
+can be found at** <https://github.com/jipingw/NuPoP_doc>
 
 ![](http://bioinfo.stats.northwestern.edu/snapshot_MNase_vs_Chemical.png)
 
+*********************************************
 
 ## About NuPoP
 
